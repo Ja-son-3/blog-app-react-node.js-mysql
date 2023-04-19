@@ -1,21 +1,21 @@
 $lightGreen : #b9e7e7;
 
-.app{
+.app {
     display: flex;
     justify-content: center;
 
-    .container{
+    .container {
         width: 1024px;
 
 
-        .link{
+        .link {
             text-decoration: none;
             color: inherit;
         }
 
         //Login and Register
 
-        .auth{
+        .auth {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -23,27 +23,27 @@ $lightGreen : #b9e7e7;
             height: 100vh;
             background-color: $lightGreen;
 
-            h1{
+            h1 {
                 font-size: 20px;
                 color: teal;
                 margin-bottom: 20px;
             }
 
-            form{
+            form {
                 display: flex;
                 flex-direction: column;
                 padding: 50px;
                 background-color: white;
                 width: 200px;
                 gap: 20px;
-                
-                input{
+
+                input {
                     padding: 10px;
                     border: none;
                     border-bottom: 1px solid gray;
                 }
 
-                button{
+                button {
                     padding: 10px;
                     border: none;
                     background-color: teal;
@@ -51,13 +51,13 @@ $lightGreen : #b9e7e7;
                     color: white;
                 }
 
-                p{
+                p {
                     font-size: 12px;
                     color: red;
                     text-align: center;
                 }
 
-                span{
+                span {
                     font-size: 12px;
                     text-align: center;
                 }
@@ -66,38 +66,38 @@ $lightGreen : #b9e7e7;
 
         //NAVBAR
 
-        .navbar{
+        .navbar {
 
-            
-            .container{
+
+            .container {
                 padding: 10px 0px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
 
-                .logo{
-                    
+                .logo {
 
-                    img{
+
+                    img {
                         width: 120px;
                     }
                 }
 
-                .links{
+                .links {
                     display: flex;
                     align-items: center;
                     gap: 10px;
 
-                    h6{
+                    h6 {
                         font-size: 16px;
                         font-weight: 300;
                     }
 
-                    span{
+                    span {
                         cursor: pointer;
                     }
 
-                    .write{
+                    .write {
                         background-color: $lightGreen;
                         width: 50px;
                         height: 50px;
@@ -108,7 +108,7 @@ $lightGreen : #b9e7e7;
                         font-weight: 300;
                         border: 1px solid white;
 
-                        &:hover{
+                        &:hover {
                             color: teal;
                             background-color: white;
                             border: 1px solid teal;
@@ -120,7 +120,7 @@ $lightGreen : #b9e7e7;
 
         //Footer
 
-        footer{
+        footer {
             margin-top: 100px;
             padding: 20px;
             background-color: $lightGreen;
@@ -129,36 +129,36 @@ $lightGreen : #b9e7e7;
             justify-content: space-between;
             font-size: 12px;
 
-            img{
+            img {
                 height: 50px;
             }
         }
 
         //HOME
 
-        .home{
+        .home {
 
-            
-            .posts{
+
+            .posts {
                 margin-top: 50px;
                 display: flex;
                 flex-direction: column;
                 gap: 150px;
 
-                .post{
+                .post {
                     display: flex;
                     gap: 100px;
 
-                    &:nth-child(2n+1){
+                    &:nth-child(2n+1) {
                         flex-direction: row-reverse;
                     }
 
-                    .img{
-                        flex:2;
+                    .img {
+                        flex: 2;
                         position: relative;
 
-                        &::after{
-                            content:"";
+                        &::after {
+                            content: "";
                             width: 100%;
                             height: 100%;
                             background-color: $lightGreen;
@@ -168,28 +168,28 @@ $lightGreen : #b9e7e7;
                             z-index: -1;
                         }
 
-                        img{
+                        img {
                             width: 100%;
                             max-height: 400px;
                             object-fit: cover;
                         }
                     }
 
-                    .content{
-                        flex:3;
+                    .content {
+                        flex: 3;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
 
-                        h1{
+                        h1 {
                             font-size: 48px;
                         }
 
-                        p{
+                        p {
                             font-size: 18px;
                         }
 
-                        button{
+                        button {
                             width: max-content;
                             padding: 10px 20px;
                             border: none;
@@ -199,11 +199,115 @@ $lightGreen : #b9e7e7;
                             color: teal;
                             font-weight: bold;
 
-                            &:hover{
+                            &:hover {
                                 border: 1px solid white;
                                 background-color: $lightGreen;
                                 color: black;
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Single
+
+        .single {
+            display: flex;
+            gap: 50px;
+
+            .content {
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                }
+
+                .user {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 14px;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+
+                .edit{
+                    display: flex;
+                    gap: 5px;
+
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                }
+
+                h1{
+                    font-size: 42px;
+                    color: #333;
+                }
+
+                p{
+                    text-align: justify;
+                    line-height: 30px;
+                }
+
+            }
+
+            .menu {
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+
+                h1{
+                    font-size: 20px;
+                    color: #555;
+                }
+
+                .post{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    img{
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                    }
+
+                    h2{
+                        color: #555;
+                    }
+
+                    button {
+                        width: max-content;
+                        padding: 7.5px 15px;
+                        border: none;
+                        cursor: pointer;
+                        color: teal;
+                        background-color: white;
+                        border: 1px solid teal;
+
+                        &:hover{
+                            border: 1px solid white;
+                            background-color: $lightGreen;
+                            color: black;
                         }
                     }
                 }
