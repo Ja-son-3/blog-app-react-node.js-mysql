@@ -1,29 +1,52 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Edit from "../img/edit.png"
 import Delete from "../img/delete.png"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Menu from '../components/Menu'
+import axios from 'axios'
+import moment from "moment"
+import { AuthContext } from "../context/authContext"
 
 const Single = () => {
+  const [post, setPost] = useState({})
+
+  const location = useLocation()
+
+  const postId = location.pathname.split("/")[2]
+
+  const { currentUser } = useContext(AuthContext)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/posts/${postId}`)
+        setPost(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchData()
+  }, [postId])
+
   return (
     <div className='single'>
       <div className="content">
-        <img src="https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
+        <img src={post?.img} alt="" />
         <div className="user">
           <img src="https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
           <div className="info">
-            <span>John</span>
-            <p>posted 2 days ago</p>
+            <span>{post.username}</span>
+            <p>posted {moment(post.date).fromNow()}</p>
           </div>
-          <div className="edit">
+          {currentUser.username === post.username && (<div className="edit">
             <Link to={`/write?edit=2`}>
               <img src={Edit} alt="" />
             </Link>
             <img src={Delete} alt="" />
-          </div>
+          </div>)}
         </div>
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora natus asperiores eos itaque eum culpa repellat, provident ducimus modi, soluta molestias voluptatem maxime molestiae veritatis id. Facilis adipisci quasi quisquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quidem, molestias saepe aliquam recusandae repellat. Dolores, facere provident sit exercitationem porro dolore! Dignissimos cum voluptatum sed dolorem blanditiis, reiciendis facilis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, non omnis excepturi eaque libero dolorum perferendis asperiores, distinctio ea reiciendis aspernatur incidunt, velit dolor. Fugiat sapiente eius neque itaque nemo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam adipisci aliquam, consequatur a nobis commodi, velit, obcaecati numquam reiciendis culpa minus similique. Sit libero similique animi. Cumque totam tenetur ipsa? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis pariatur alias vel, voluptas provident magni ipsam voluptatibus veniam soluta praesentium, quasi voluptatem nisi repellendus iste impedit perferendis error earum ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquam officiis eos harum, magnam odit error in nobis delectus explicabo quibusdam saepe, veniam nulla dolore numquam alias amet voluptas facere.</p>
+        <h1>{post.title}</h1>
+        {post.desc}
       </div>
       <div className="menu">
         <Menu />
